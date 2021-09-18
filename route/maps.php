@@ -1,11 +1,14 @@
+<!-- DB -->
+<?php //include "includes/db.php"; ?>
+
 <?php
   header("Access-Control-Allow-Origin: *");
   header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    $servername = "localhost";
+    $servername = "localhost:3308";
     $username = "root";
     $password = "";
-    $dbname = "gmap";
+    $dbname = "db_route";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,13 +18,13 @@
         die("Connection failed: " . $conn->connect_error);
     }
     $city = $_GET['city'];
-    $sql = "SELECT * FROM locations where city = '$city'";
+    $sql = "SELECT * FROM tbl_hotels where city = '$city'";
     $result = $conn->query($sql);
 
     $arr = [];
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $lat_lang = $row["lat"].':'. $row["lang"].':'.$row['hotel_name'];
+            $lat_lang = $row["lat"].':'. $row["lan"].':'.$row['name'];
             array_push($arr,$lat_lang);
         }
     }
