@@ -1,0 +1,21 @@
+#map {
+    height: 100%;
+  }
+  
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .label{
+    color: #000;
+    background-color: white;
+    border: 1px solid #000;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 2px;
+ }

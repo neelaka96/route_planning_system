@@ -83,18 +83,23 @@ if($pageName == $active_home){
 }
 
 ?>
-
+    
                     <li class=" <?php echo $active_home; ?> nav-item"><a href="index.php" class="nav-link">Home</a></li>
                 <li class=" 
                     <?php echo $active_places .' '.$active_search_locations.' '.$active_search_locations_act.' '.$active_place_single; ?> nav-item">
                     <a href="places.php" class="nav-link">Places</a>
                 </li>
 
-
                 <li class=" 
                     <?php echo $active_hotels . ' ' . $active_hotel_single . ' ' . $active_search_hotel .' '. $active_room_single .' '. $active_search_room; ?> 
                     nav-item">
                     <a href="hotels.php" class="nav-link">Hotels and Restaurants</a>
+                </li>
+
+                <li class=" 
+                    <?php echo $active_hotels . ' ' . $active_hotel_single . ' ' . $active_search_hotel .' '. $active_room_single .' '. $active_search_room; ?> 
+                    nav-item">
+                    <a href="XXXXXXXXXXXX.php" class="nav-link">Route Plan</a>
                 </li>
 
                 <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
