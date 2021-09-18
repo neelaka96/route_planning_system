@@ -1,6 +1,3 @@
-<!-- DB -->
-<?php //include "includes/db.php"; ?>
-
 <?php
   header("Access-Control-Allow-Origin: *");
   header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");

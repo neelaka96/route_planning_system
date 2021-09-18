@@ -17,7 +17,7 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
-    <script src="./map.js"></script>
+    <script src="map.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -27,6 +27,9 @@
   </head>
 
   <body>
+    <!-- HEADER -->
+    <?php include "../../includes/i_header.php"; ?>
+    
     <div class="row" style="padding: 0; margin: 0">
       <div class="col-lg-2" style="padding: 50px; margin: 0">
         <div class="form-group">
@@ -37,24 +40,22 @@
             onchange="select_first_city()"
           >
             <option value="#">SELECT</option>
-            <option value="colombo, lk">Colombo</option>
-            <option value="kalutara, lk">Kalutara</option>
-            <option value="kandy, lk">Kandy</option>
-            <option value="ampara, lk">Ampara</option>
-            <option value="hambantota, lk">Hambanthota</option>
-            <option value="kalutara, lk">Kalutara 2</option>
           </select>
         </div>
         <div class="form-group">
           <label for="">Destination Two</label><br />
           <select name="citydrop" id="citydrop" onchange="select_city(this)">
             <option value="#">SELECT</option>
-            <option value="colombo, lk">Colombo</option>
-            <option value="kalutara, lk">Kalutara</option>
-            <option value="kandy, lk">Kandy</option>
-            <option value="ampara, lk">Ampara</option>
-            <option value="hambantota, lk">Hambanthota</option>
-            <option value="kalutara, lk">Kalutara 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Destination Third</label><br />
+          <select
+            name="citythird"
+            id="citythird"
+            onchange="select_third_city(this)"
+          >
+            <option value="#">SELECT</option>
           </select>
         </div>
       </div>
@@ -65,7 +66,7 @@
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC40BvbUOtVa8XBmSzj8dhoIr36Hp6XGNs&callback=initMap&libraries=&v=weekly&channel=2"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly&channel=2"
       async
     ></script>
   </body>

@@ -9,8 +9,10 @@ async function getapi(url, prms) {
   console.log(data);
   if (prms == "first") {
     initMap_first();
-  } else {
+  } else if (prms == "second") {
     initMapw();
+  } else {
+    initMap_third();
   }
 }
 // async function getapi_first(url) {
@@ -42,6 +44,14 @@ function select_first_city() {
     "http://localhost/dilshan/route_planning_system/route/maps.php?city=" +
     city;
   getapi(api_url_filter, "first");
+}
+function select_third_city() {
+  let city = document.getElementById("citythird").value;
+  console.log(city);
+  const api_url_filter =
+    "http://localhost/dilshan/route_planning_system/route/maps.php?city=" +
+    city;
+  getapi(api_url_filter, "third");
 }
 function initMapw() {
   const myLatLng = {
@@ -144,6 +154,65 @@ function initMap_first() {
   }
 }
 
+function initMap_third() {
+  const myLatLng = {
+    lat: parseFloat(data[0].split(":")[0]),
+    lng: parseFloat(data[0].split(":")[1]),
+  };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 5,
+    center: myLatLng,
+  });
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer();
+
+  directionsRenderer.setMap(map);
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+
+  const directionsService2 = new google.maps.DirectionsService();
+  const directionsRenderer2 = new google.maps.DirectionsRenderer();
+
+  directionsRenderer2.setMap(map);
+  calculateAndDisplayRoutetwo(directionsService2, directionsRenderer2);
+
+  if (data.length > 0) {
+    for (let i = 0; i < data.length; i++) {
+      let lat_lang = data[i];
+      let spy = lat_lang.split(":");
+      let lat_ad = parseFloat(spy[0]);
+      let lang_ad = parseFloat(spy[1]);
+      const myLatLng2 = { lat: lat_ad, lng: lang_ad };
+
+      var measle = new google.maps.Marker({
+        position: myLatLng2,
+        map: map,
+        icon: {
+          url: "https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle.png",
+          size: new google.maps.Size(7, 7),
+          anchor: new google.maps.Point(4, 4),
+        },
+      });
+
+      new google.maps.Marker({
+        position: myLatLng2,
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+          labelOrigin: new google.maps.Point(75, 32),
+          size: new google.maps.Size(32, 32),
+          anchor: new google.maps.Point(16, 32),
+        },
+        label: {
+          text: spy[2],
+          color: "#C70E20",
+          fontWeight: "bold",
+        },
+        map,
+        title: "DEVELOPED BY DILSHAN NEELAKA",
+      });
+    }
+  }
+}
+
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   directionsService
     .route({
@@ -160,3 +229,60 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
 }
+
+function calculateAndDisplayRoutetwo(directionsService, directionsRenderer) {
+  directionsService
+    .route({
+      origin: {
+        query: document.getElementById("citydrop").value,
+      },
+      destination: {
+        query: document.getElementById("citythird").value,
+      },
+      travelMode: google.maps.TravelMode.DRIVING,
+    })
+    .then((response) => {
+      directionsRenderer.setDirections(response);
+    })
+    .catch((e) => window.alert("Directions request failed due to " + status));
+}
+
+async function getlocations() {
+  let response = await fetch(
+    "http://localhost/dilshan/route_planning_system/route/location.php"
+  );
+  data = await response.json();
+
+  daySelect = document.getElementById("citydrop_one");
+
+  for (let i = 0; i < data.length; i++) {
+    let loc_name = data[i].split(",");
+
+    console.log(loc_name);
+    daySelect.options[daySelect.options.length] = new Option(
+      loc_name[0],
+      data[i]
+    );
+  }
+
+  daySelect = document.getElementById("citydrop");
+
+  for (let i = 0; i < data.length; i++) {
+    let loc_name = data[i].split(",");
+    daySelect.options[daySelect.options.length] = new Option(
+      loc_name[0],
+      data[i]
+    );
+  }
+
+  daySelect = document.getElementById("citythird");
+
+  for (let i = 0; i < data.length; i++) {
+    let loc_name = data[i].split(",");
+    daySelect.options[daySelect.options.length] = new Option(
+      loc_name[0],
+      data[i]
+    );
+  }
+}
+getlocations();

@@ -39,6 +39,7 @@ $active_search_locations_act = 'search_locations_using_activity.php';
 $active_place_single = 'place-single.php';
 
 $active_hotels = 'hotels.php';
+$active_route = 'route.php';
 $active_hotel_single = 'hotel-single.php';
 $active_search_hotel = 'search_hotel.php';
 $active_room_single = 'room-single.php';
@@ -80,6 +81,8 @@ if($pageName == $active_home){
     $active_user_account = 'active';    
 }else if ($pageName == $active_hotel_account){
     $active_hotel_account = 'active';    
+}else if ($pageName == $active_route){
+    $active_route = 'active';    
 }
 
 ?>
@@ -97,9 +100,9 @@ if($pageName == $active_home){
                 </li>
 
                 <li class=" 
-                    <?php echo $active_hotels . ' ' . $active_hotel_single . ' ' . $active_search_hotel .' '. $active_room_single .' '. $active_search_room; ?> 
+                    <?php echo $active_route . ' ' . $active_hotel_single . ' ' . $active_search_hotel .' '. $active_room_single .' '. $active_search_room; ?> 
                     nav-item">
-                    <a href="XXXXXXXXXXXX.php" class="nav-link">Route Plan</a>
+                    <a href="route.php" class="nav-link">Route Plan</a>
                 </li>
 
                 <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
