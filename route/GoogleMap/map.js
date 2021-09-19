@@ -3,6 +3,11 @@ let data = ["-34.397:150.644"];
 const labels = "A";
 let labelIndex = 0;
 
+let MAP_URL =
+  "http://localhost/dilshan/route_planning_system/route/maps.php?city=";
+let LOCATION_URL =
+  "http://localhost/dilshan/route_planning_system/route/location.php";
+
 async function getapi(url, prms) {
   let response = await fetch(url);
   data = await response.json();
@@ -32,25 +37,19 @@ function initMap() {
 function select_city() {
   let city = document.getElementById("citydrop").value;
   console.log(city);
-  const api_url_filter =
-    "http://localhost/exploreceylon/route/maps.php?city=" +
-    city;
+  const api_url_filter = MAP_URL + city;
   getapi(api_url_filter, "second");
 }
 function select_first_city() {
   let city = document.getElementById("citydrop_one").value;
   console.log(city);
-  const api_url_filter =
-    "http://localhost/exploreceylon/route/maps.php?city=" +
-    city;
+  const api_url_filter = MAP_URL + city;
   getapi(api_url_filter, "first");
 }
 function select_third_city() {
   let city = document.getElementById("citythird").value;
   console.log(city);
-  const api_url_filter =
-    "http://localhost/exploreceylon/route/maps.php?city=" +
-    city;
+  const api_url_filter = MAP_URL + city;
   getapi(api_url_filter, "third");
 }
 function initMapw() {
@@ -248,9 +247,7 @@ function calculateAndDisplayRoutetwo(directionsService, directionsRenderer) {
 }
 
 async function getlocations() {
-  let response = await fetch(
-    "http://localhost/exploreceylon/route/location.php"
-  );
+  let response = await fetch(LOCATION_URL);
   data = await response.json();
 
   daySelect = document.getElementById("citydrop_one");

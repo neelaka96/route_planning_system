@@ -16,58 +16,58 @@
     <!-- jsFiddle will insert css and js -->
     <link rel="stylesheet" href="route/GoogleMap/map.css" />
     <!-- JavaScript Bundle with Popper -->
-    <script
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
     <script src="route/GoogleMap/map.js"></script>
 
 
 
-        
-        <section class="ftco-section">
+
+    <section class="ftco-section" style="padding: 20px;">
       <div class="container-fluid">
-
-
-<div class="row">
-
-<div class="col-md-7">
-        <form method="POST" action="">
-                <div class="row">
-                <div class="col-md">
-                        <div class="form-group">
-          <label for="">Destination One</label>
-          <select
-            name="citydrop_one"
-            id="citydrop_one"
-            onchange="select_first_city()"
-          >
-            <option value="#">SELECT</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="">Destination Two</label>
-          <select name="citydrop" id="citydrop" onchange="select_city(this)">
-            <option value="#">SELECT</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="">Destination Third</label>
-          <select
-            name="citythird"
-            id="citythird"
-            onchange="select_third_city(this)"
-          >
-            <option value="#">SELECT</option>
-          </select>
-        </div>
-                </div>
-        </form>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-4">
+            <h2>Select Location</h2>
+          </div>
         </div>
         <div class="row">
-                <div class="col-md">
-                <!-- start -->
+          <div class="col">
+            <div class="form-group">
+              <label for="">Destination One</label>
+              <select class="form-control" name="citydrop_one" id="citydrop_one" onchange="select_first_city()">
+                <option value="#">SELECT</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="">Destination Two</label>
+              <select class="form-control" name="citydrop" id="citydrop" onchange="select_city(this)">
+                <option value="#">SELECT</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="">Destination Three</label>
+              <select class="form-control" name="citythird" id="citythird" onchange="select_third_city(this)">
+                <option value="#">SELECT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col" style="height: 100vh">
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="row">
+
+<!-- start cards -->
 
                 <?php
 
@@ -110,7 +110,7 @@ while($row = mysqli_fetch_assoc($result))
     if($status == "Published")            
     {
 ?>
-<div class="col-sm col-md-6 col-lg-6 ftco-animate">
+<div class="col-sm col-md-6 col-lg-4 ftco-animate">
   <div class="destination">
     <a
       href="hotel-single.php?hotel_id=<?php echo $id; ?>"
@@ -163,35 +163,18 @@ while($row = mysqli_fetch_assoc($result))
 <?php } } ?>
 
 
-                <!-- end -->
-                </div>
+                <!-- end cards-->
+
         </div>
-        
-</div>
-<div class="col-md-5" style="height: 100vh;">
-        <div id="map"></div>
-</div>
-
-
-
-      <!-- <div class="col-lg-2" style="padding: 50px; margin: 0">
-        
       </div>
-      <div class="col-lg-10" style="height: 100vh; padding: 0; margin: 0">
-        <div id="map"></div>
-      </div>
-    </div> -->
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC40BvbUOtVa8XBmSzj8dhoIr36Hp6XGNs&callback=initMap&libraries=&v=weekly&channel=2"
-      async
-    ></script>
-
-</div>
-</section>
+    </section>
 
 
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC40BvbUOtVa8XBmSzj8dhoIr36Hp6XGNs&callback=initMap&libraries=&v=weekly&channel=2" async></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!-- FOOTER -->
 <?php include "includes/i_footer.php"; ?>

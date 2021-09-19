@@ -1,10 +1,23 @@
-<?php
+<!-- start cards -->
+
+                <?php
+
+// $city_one = $_POST['citydrop_one'];
+// $city_two = $_POST['citydrop'];
+// $city_three = $_POST['citythird'];
+// $query = "SELECT * FROM tbl_hotels WHERE city LIKE '%$city_one%' OR city LIKE '%$city_two%' OR city LIKE '%$city_three%' ORDER BY id DESC";
 $query = "SELECT * FROM tbl_hotels ORDER BY id DESC";
+
 $result = mysqli_query($conn, $query);
 if(!$result)
 {
     die("Query Failed " . mysqli_error($conn));
 }
+$count = mysqli_num_rows($result);
+        if ($count == 0) 
+        {
+            echo "<h1 class='text-danger'> No Hotels Found </h1>";
+        }
 while($row = mysqli_fetch_assoc($result))
 {
     $id				= $row['id'];               
@@ -79,3 +92,43 @@ while($row = mysqli_fetch_assoc($result))
   </div>
 </div>
 <?php } } ?>
+
+
+                <!-- end cards-->
+
+
+
+
+                <!-- start drop -->
+                <form method="POST" action="">
+                <div class="row">
+                <div class="col-md">
+                        <div class="form-group">
+          <label for="">Destination One</label>
+          <select
+            name="citydrop_one"
+            id="citydrop_one"
+            onchange="select_first_city()"
+          >
+            <option value="#">SELECT</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Destination Two</label>
+          <select name="citydrop" id="citydrop" onchange="select_city(this)">
+            <option value="#">SELECT</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Destination Third</label>
+          <select
+            name="citythird"
+            id="citythird"
+            onchange="select_third_city(this)"
+          >
+            <option value="#">SELECT</option>
+          </select>
+        </div>
+                </div>
+        </form>
+                <!-- end drop -->
