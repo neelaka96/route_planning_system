@@ -2,7 +2,7 @@
   header("Access-Control-Allow-Origin: *");
   header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    $servername = "localhost:3308";
+    $servername = "localhost:3307";
     $username = "root";
     $password = "";
     $dbname = "db_route";

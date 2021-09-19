@@ -33,7 +33,7 @@ function select_city() {
   let city = document.getElementById("citydrop").value;
   console.log(city);
   const api_url_filter =
-    "http://localhost/dilshan/route_planning_system/route/maps.php?city=" +
+    "http://localhost/exploreceylon/route/maps.php?city=" +
     city;
   getapi(api_url_filter, "second");
 }
@@ -41,7 +41,7 @@ function select_first_city() {
   let city = document.getElementById("citydrop_one").value;
   console.log(city);
   const api_url_filter =
-    "http://localhost/dilshan/route_planning_system/route/maps.php?city=" +
+    "http://localhost/exploreceylon/route/maps.php?city=" +
     city;
   getapi(api_url_filter, "first");
 }
@@ -49,7 +49,7 @@ function select_third_city() {
   let city = document.getElementById("citythird").value;
   console.log(city);
   const api_url_filter =
-    "http://localhost/dilshan/route_planning_system/route/maps.php?city=" +
+    "http://localhost/exploreceylon/route/maps.php?city=" +
     city;
   getapi(api_url_filter, "third");
 }
@@ -100,7 +100,7 @@ function initMapw() {
           fontWeight: "bold",
         },
         map,
-        title: "DEVELOPED BY DILSHAN NEELAKA",
+        title: "DEVELOPED BY ExploreCeylon.lk",
       });
     }
   }
@@ -148,7 +148,7 @@ function initMap_first() {
           fontWeight: "bold",
         },
         map,
-        title: "DEVELOPED BY DILSHAN NEELAKA",
+        title: "DEVELOPED BY ExploreCeylon.lk",
       });
     }
   }
@@ -207,7 +207,7 @@ function initMap_third() {
           fontWeight: "bold",
         },
         map,
-        title: "DEVELOPED BY DILSHAN NEELAKA",
+        title: "DEVELOPED BY ExploreCeylon.lk",
       });
     }
   }
@@ -249,7 +249,7 @@ function calculateAndDisplayRoutetwo(directionsService, directionsRenderer) {
 
 async function getlocations() {
   let response = await fetch(
-    "http://localhost/dilshan/route_planning_system/route/location.php"
+    "http://localhost/exploreceylon/route/location.php"
   );
   data = await response.json();
 
